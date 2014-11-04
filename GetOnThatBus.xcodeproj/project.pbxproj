@@ -9,11 +9,13 @@
 /* Begin PBXBuildFile section */
 		4FBF99611A097A86008E3B28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99601A097A86008E3B28 /* main.m */; };
 		4FBF99641A097A86008E3B28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99631A097A86008E3B28 /* AppDelegate.m */; };
-		4FBF99671A097A86008E3B28 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99661A097A86008E3B28 /* ViewController.m */; };
+		4FBF99671A097A86008E3B28 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99661A097A86008E3B28 /* RootViewController.m */; };
 		4FBF996A1A097A86008E3B28 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4FBF99681A097A86008E3B28 /* Main.storyboard */; };
 		4FBF996C1A097A86008E3B28 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4FBF996B1A097A86008E3B28 /* Images.xcassets */; };
 		4FBF996F1A097A86008E3B28 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4FBF996D1A097A86008E3B28 /* LaunchScreen.xib */; };
 		4FBF997B1A097A86008E3B28 /* GetOnThatBusTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF997A1A097A86008E3B28 /* GetOnThatBusTests.m */; };
+		4FBF99851A097B96008E3B28 /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4FBF99841A097B96008E3B28 /* MapKit.framework */; };
+		4FBF99881A097BF8008E3B28 /* BusStop.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99871A097BF8008E3B28 /* BusStop.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -32,14 +34,17 @@
 		4FBF99601A097A86008E3B28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		4FBF99621A097A86008E3B28 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		4FBF99631A097A86008E3B28 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		4FBF99651A097A86008E3B28 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
-		4FBF99661A097A86008E3B28 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		4FBF99651A097A86008E3B28 /* RootViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
+		4FBF99661A097A86008E3B28 /* RootViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		4FBF99691A097A86008E3B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		4FBF996B1A097A86008E3B28 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		4FBF996E1A097A86008E3B28 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
 		4FBF99741A097A86008E3B28 /* GetOnThatBusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = GetOnThatBusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBF99791A097A86008E3B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FBF997A1A097A86008E3B28 /* GetOnThatBusTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = GetOnThatBusTests.m; sourceTree = "<group>"; };
+		4FBF99841A097B96008E3B28 /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		4FBF99861A097BF8008E3B28 /* BusStop.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStop.h; sourceTree = "<group>"; };
+		4FBF99871A097BF8008E3B28 /* BusStop.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStop.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +52,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4FBF99851A097B96008E3B28 /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -63,6 +69,7 @@
 		4FBF99521A097A86008E3B28 = {
 			isa = PBXGroup;
 			children = (
+				4FBF99841A097B96008E3B28 /* MapKit.framework */,
 				4FBF995D1A097A86008E3B28 /* GetOnThatBus */,
 				4FBF99771A097A86008E3B28 /* GetOnThatBusTests */,
 				4FBF995C1A097A86008E3B28 /* Products */,
@@ -83,11 +90,12 @@
 			children = (
 				4FBF99621A097A86008E3B28 /* AppDelegate.h */,
 				4FBF99631A097A86008E3B28 /* AppDelegate.m */,
-				4FBF99651A097A86008E3B28 /* ViewController.h */,
-				4FBF99661A097A86008E3B28 /* ViewController.m */,
+				4FBF99651A097A86008E3B28 /* RootViewController.h */,
+				4FBF99661A097A86008E3B28 /* RootViewController.m */,
 				4FBF99681A097A86008E3B28 /* Main.storyboard */,
 				4FBF996B1A097A86008E3B28 /* Images.xcassets */,
 				4FBF996D1A097A86008E3B28 /* LaunchScreen.xib */,
+				4FBF99891A098337008E3B28 /* MODEL */,
 				4FBF995E1A097A86008E3B28 /* Supporting Files */,
 			);
 			path = GetOnThatBus;
@@ -117,6 +125,15 @@
 				4FBF99791A097A86008E3B28 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4FBF99891A098337008E3B28 /* MODEL */ = {
+			isa = PBXGroup;
+			children = (
+				4FBF99861A097BF8008E3B28 /* BusStop.h */,
+				4FBF99871A097BF8008E3B28 /* BusStop.m */,
+			);
+			name = MODEL;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,7 +236,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				4FBF99671A097A86008E3B28 /* ViewController.m in Sources */,
+				4FBF99881A097BF8008E3B28 /* BusStop.m in Sources */,
+				4FBF99671A097A86008E3B28 /* RootViewController.m in Sources */,
 				4FBF99641A097A86008E3B28 /* AppDelegate.m in Sources */,
 				4FBF99611A097A86008E3B28 /* main.m in Sources */,
 			);
@@ -348,6 +366,7 @@
 				INFOPLIST_FILE = GetOnThatBus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -358,6 +377,7 @@
 				INFOPLIST_FILE = GetOnThatBus/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
