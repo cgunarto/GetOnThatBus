@@ -24,6 +24,8 @@
 
 @implementation DetailViewController
 
+#pragma mark View Controller Life Cycle
+
 - (void)viewDidLoad
 {
     [super viewDidLoad];
@@ -38,6 +40,7 @@
 
 }
 
+#pragma mark Custom Method
 
 - (void)setAddressLabelwithReverseGeocode
 {

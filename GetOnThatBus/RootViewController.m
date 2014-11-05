@@ -15,6 +15,8 @@
 #define kURL @"https://s3.amazonaws.com/mobile-makers-lib/bus.json"
 #define klatitudeDelta 0.4
 #define klongitudeDelta 0.4
+#define klatitudeCenter 41.8819542
+#define klongitudeCenter -87.6409225
 
 @interface RootViewController () <MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
@@ -35,6 +37,7 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self hideTableView];
     self.allBusStopArray = [@[]mutableCopy];
     [self setInitialViewToChicago];
     [self requestQuery];
@@ -44,14 +47,21 @@
 - (void)viewDidAppear:(BOOL)animated
 {
     [self requestQuery];
+    [self hideTableView];
     [self.tableView reloadData];
+}
+
+
+- (void)hideTableView
+{
+    self.tableView.hidden = YES;
 }
 
 
 - (void)setInitialViewToChicago
 {
-    //set the center of the map to Chicago
-    CLLocationCoordinate2D chicago = CLLocationCoordinate2DMake(41.8337329, -87.7321555);
+    //set the center of the map to Madison & Clinton
+    CLLocationCoordinate2D chicago = CLLocationCoordinate2DMake(klatitudeCenter, klongitudeCenter);
     MKCoordinateSpan coordinateSpan;
     coordinateSpan.latitudeDelta = klatitudeDelta;
     coordinateSpan.longitudeDelta = klongitudeDelta;
