@@ -189,6 +189,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="XEW-9u-s5O">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" red="0.19291727371010892" green="0.63483416465411213" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="tintColor" red="0.20746849264310618" green="0.6474757178927335" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
