@@ -12,7 +12,9 @@
 @interface BusStop : NSObject
 @property (nonatomic,strong) NSString *stopID; //it could be NSNumber
 @property (nonatomic,strong) NSString *name;
+@property (nonatomic,strong) NSString *address;
 @property (nonatomic,strong) NSString *route;
+@property (nonatomic,strong) NSString *interModal;
 
 @property NSNumber *longitude;
 @property NSNumber *latitude;

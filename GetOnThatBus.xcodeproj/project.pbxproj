@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4F91BF9D1A09935600FF6A65 /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F91BF9C1A09935600FF6A65 /* DetailViewController.m */; };
+		4F91BFA01A09A23100FF6A65 /* BusStopAnnotation.m in Sources */ = {isa = PBXBuildFile; fileRef = 4F91BF9F1A09A23100FF6A65 /* BusStopAnnotation.m */; };
 		4FBF99611A097A86008E3B28 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99601A097A86008E3B28 /* main.m */; };
 		4FBF99641A097A86008E3B28 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99631A097A86008E3B28 /* AppDelegate.m */; };
 		4FBF99671A097A86008E3B28 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4FBF99661A097A86008E3B28 /* RootViewController.m */; };
@@ -29,6 +31,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		4F91BF9B1A09935600FF6A65 /* DetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		4F91BF9C1A09935600FF6A65 /* DetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		4F91BF9E1A09A23100FF6A65 /* BusStopAnnotation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BusStopAnnotation.h; sourceTree = "<group>"; };
+		4F91BF9F1A09A23100FF6A65 /* BusStopAnnotation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BusStopAnnotation.m; sourceTree = "<group>"; };
 		4FBF995B1A097A86008E3B28 /* GetOnThatBus.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GetOnThatBus.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4FBF995F1A097A86008E3B28 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		4FBF99601A097A86008E3B28 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -92,6 +98,8 @@
 				4FBF99631A097A86008E3B28 /* AppDelegate.m */,
 				4FBF99651A097A86008E3B28 /* RootViewController.h */,
 				4FBF99661A097A86008E3B28 /* RootViewController.m */,
+				4F91BF9B1A09935600FF6A65 /* DetailViewController.h */,
+				4F91BF9C1A09935600FF6A65 /* DetailViewController.m */,
 				4FBF99681A097A86008E3B28 /* Main.storyboard */,
 				4FBF996B1A097A86008E3B28 /* Images.xcassets */,
 				4FBF996D1A097A86008E3B28 /* LaunchScreen.xib */,
@@ -132,6 +140,8 @@
 			children = (
 				4FBF99861A097BF8008E3B28 /* BusStop.h */,
 				4FBF99871A097BF8008E3B28 /* BusStop.m */,
+				4F91BF9E1A09A23100FF6A65 /* BusStopAnnotation.h */,
+				4F91BF9F1A09A23100FF6A65 /* BusStopAnnotation.m */,
 			);
 			name = MODEL;
 			sourceTree = "<group>";
@@ -236,6 +246,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4F91BF9D1A09935600FF6A65 /* DetailViewController.m in Sources */,
+				4F91BFA01A09A23100FF6A65 /* BusStopAnnotation.m in Sources */,
 				4FBF99881A097BF8008E3B28 /* BusStop.m in Sources */,
 				4FBF99671A097A86008E3B28 /* RootViewController.m in Sources */,
 				4FBF99641A097A86008E3B28 /* AppDelegate.m in Sources */,
@@ -434,6 +446,7 @@
 				4FBF99801A097A86008E3B28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		4FBF99811A097A86008E3B28 /* Build configuration list for PBXNativeTarget "GetOnThatBusTests" */ = {
 			isa = XCConfigurationList;
@@ -442,6 +455,7 @@
 				4FBF99831A097A86008E3B28 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
