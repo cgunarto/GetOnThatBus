@@ -5,7 +5,7 @@
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
-        <!--Root View Controller-->
+        <!--Chicago Bus Stops-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="RootViewController" sceneMemberID="viewController">
@@ -23,25 +23,69 @@
                                     <outlet property="delegate" destination="BYZ-38-t0r" id="Xgd-k5-3Lp"/>
                                 </connections>
                             </mapView>
-                            <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cxn-OG-od7">
-                                <rect key="frame" x="99" y="526" width="123" height="29"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" translatesAutoresizingMaskIntoConstraints="NO" id="4ga-y5-5zh">
+                                <rect key="frame" x="0.0" y="64" width="320" height="452"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <prototypes>
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="cell" textLabel="Gsn-Eg-Nq3" detailTextLabel="NB6-Gk-l8Q" style="IBUITableViewCellStyleSubtitle" id="P8o-PN-RfO">
+                                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="P8o-PN-RfO" id="myt-Ab-Cc5">
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Title" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Gsn-Eg-Nq3">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                                <label opaque="NO" multipleTouchEnabled="YES" contentMode="left" text="Detail" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="NB6-Gk-l8Q">
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                    <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
+                                            </subviews>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="zkA-2x-1Hn"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="Kl9-jz-ykQ"/>
+                                </connections>
+                            </tableView>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Cxn-OG-od7">
+                                <rect key="frame" x="99" y="524" width="123" height="29"/>
                                 <segments>
                                     <segment title="First"/>
                                     <segment title="Second"/>
                                 </segments>
+                                <connections>
+                                    <action selector="segmentChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="cqD-b9-FNL"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="4ga-y5-5zh" firstAttribute="trailing" secondItem="y3c-jy-aDJ" secondAttribute="trailing" id="6uo-Hd-MFM"/>
                             <constraint firstItem="fkZ-Xg-dKe" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-16" id="85c-bB-SC1"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="Cxn-OG-od7" secondAttribute="bottom" constant="16" id="BfC-gC-zd7"/>
+                            <constraint firstItem="4ga-y5-5zh" firstAttribute="bottom" secondItem="fkZ-Xg-dKe" secondAttribute="bottom" id="E4t-JN-mmy"/>
                             <constraint firstAttribute="trailingMargin" secondItem="fkZ-Xg-dKe" secondAttribute="trailing" constant="-16" id="LA9-n7-TaE"/>
+                            <constraint firstItem="Cxn-OG-od7" firstAttribute="top" secondItem="4ga-y5-5zh" secondAttribute="bottom" constant="8" id="Mxb-2t-VqK"/>
+                            <constraint firstItem="4ga-y5-5zh" firstAttribute="leading" secondItem="y3c-jy-aDJ" secondAttribute="leading" id="T8X-VV-yfF"/>
                             <constraint firstItem="fkZ-Xg-dKe" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="topMargin" id="Ueh-YV-VQP"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="fkZ-Xg-dKe" secondAttribute="bottom" constant="52" id="Wr3-rv-qiz"/>
+                            <constraint firstItem="4ga-y5-5zh" firstAttribute="top" secondItem="fkZ-Xg-dKe" secondAttribute="top" constant="64" id="lfT-GA-TY5"/>
+                            <constraint firstAttribute="centerX" secondItem="Cxn-OG-od7" secondAttribute="centerX" id="tv8-Ve-eAL"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="8Lk-Vv-XLb"/>
+                    <navigationItem key="navigationItem" title="Chicago Bus Stops" id="8Lk-Vv-XLb"/>
                     <connections>
+                        <outlet property="leftMapConstraint" destination="85c-bB-SC1" id="nxF-X0-RhT"/>
                         <outlet property="mapView" destination="fkZ-Xg-dKe" id="5im-6O-030"/>
+                        <outlet property="rightMapConstraint" destination="LA9-n7-TaE" id="RQh-OX-ksy"/>
+                        <outlet property="tableView" destination="4ga-y5-5zh" id="1ao-2M-M6d"/>
                         <segue destination="JvL-uA-uGl" kind="push" identifier="segueToDetail" id="Na3-uV-vVM"/>
                     </connections>
                 </viewController>
@@ -61,31 +105,75 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Address: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RbZ-Gp-1y1">
-                                <rect key="frame" x="42" y="101" width="241" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Address: " lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="15" translatesAutoresizingMaskIntoConstraints="NO" id="RbZ-Gp-1y1">
+                                <rect key="frame" x="14" y="181" width="290" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="C2k-Jr-UtB"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Route" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJS-eb-Qi0">
-                                <rect key="frame" x="42" y="145" width="241" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Route" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jJS-eb-Qi0">
+                                <rect key="frame" x="16" y="123" width="285" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="WYU-V4-UId"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.036090798626758125" green="0.10250855021655503" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jmW-MB-0dJ">
+                                <rect key="frame" x="16" y="94" width="288" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="bc2-61-ayG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="25"/>
                                 <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Intermodal" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-5E-zSh">
-                                <rect key="frame" x="44" y="188" width="239" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intermodal" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dxZ-5E-zSh">
+                                <rect key="frame" x="203" y="152" width="101" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="101" id="cQ0-j4-Soq"/>
+                                    <constraint firstAttribute="height" constant="21" id="u1O-P7-nQ0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
+                                <color key="textColor" red="0.24848857887811948" green="0.54340720663265307" blue="0.15850081667485957" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="38a-5N-Hft">
+                                <rect key="frame" x="0.0" y="210" width="320" height="358"/>
+                                <connections>
+                                    <outlet property="delegate" destination="JvL-uA-uGl" id="0Ml-PH-9ZC"/>
+                                </connections>
+                            </mapView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="38a-5N-Hft" firstAttribute="top" secondItem="RbZ-Gp-1y1" secondAttribute="bottom" constant="8" id="28A-iL-4IQ"/>
+                            <constraint firstItem="05m-59-ZBD" firstAttribute="top" secondItem="38a-5N-Hft" secondAttribute="bottom" id="3HZ-gH-k6p"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="38a-5N-Hft" secondAttribute="trailing" constant="-16" id="7Iw-xo-CbV"/>
+                            <constraint firstItem="jmW-MB-0dJ" firstAttribute="leading" secondItem="D1n-YR-vkU" secondAttribute="leadingMargin" id="CcU-SM-YXC"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="dxZ-5E-zSh" secondAttribute="trailing" id="GAH-Sy-U9G"/>
+                            <constraint firstItem="jmW-MB-0dJ" firstAttribute="trailing" secondItem="D1n-YR-vkU" secondAttribute="trailingMargin" id="KmW-zq-7Au"/>
+                            <constraint firstItem="RbZ-Gp-1y1" firstAttribute="top" secondItem="jJS-eb-Qi0" secondAttribute="bottom" constant="37" id="T3L-I9-KYg"/>
+                            <constraint firstItem="jJS-eb-Qi0" firstAttribute="leading" secondItem="D1n-YR-vkU" secondAttribute="leadingMargin" id="bUN-CN-USt"/>
+                            <constraint firstItem="jJS-eb-Qi0" firstAttribute="trailing" secondItem="D1n-YR-vkU" secondAttribute="trailingMargin" constant="-3" id="bld-MO-thW"/>
+                            <constraint firstItem="dxZ-5E-zSh" firstAttribute="top" secondItem="SiE-WA-3hM" secondAttribute="bottom" constant="88" id="fvq-uN-INw"/>
+                            <constraint firstItem="38a-5N-Hft" firstAttribute="leading" secondItem="D1n-YR-vkU" secondAttribute="leadingMargin" constant="-16" id="hpw-Sd-EjM"/>
+                            <constraint firstItem="jmW-MB-0dJ" firstAttribute="top" secondItem="SiE-WA-3hM" secondAttribute="bottom" constant="30" id="lWA-Fu-LVQ"/>
+                            <constraint firstItem="jJS-eb-Qi0" firstAttribute="top" secondItem="jmW-MB-0dJ" secondAttribute="bottom" constant="8" id="lYq-RQ-cx9"/>
+                            <constraint firstItem="RbZ-Gp-1y1" firstAttribute="leading" secondItem="D1n-YR-vkU" secondAttribute="leadingMargin" constant="-2" id="nXO-RN-r5P"/>
+                            <constraint firstItem="RbZ-Gp-1y1" firstAttribute="trailing" secondItem="D1n-YR-vkU" secondAttribute="trailingMargin" id="xlY-Sj-c3P"/>
+                        </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="uQq-ru-fb3"/>
                     <connections>
-                        <outlet property="addressLabel" destination="RbZ-Gp-1y1" id="67G-WT-JP0"/>
+                        <outlet property="addressLabel" destination="RbZ-Gp-1y1" id="F67-FD-wGL"/>
+                        <outlet property="busStopName" destination="jmW-MB-0dJ" id="Jmf-Ji-BuW"/>
                         <outlet property="interModalLabel" destination="dxZ-5E-zSh" id="Ky4-ks-jdf"/>
+                        <outlet property="mapView" destination="38a-5N-Hft" id="pYa-Rw-cMz"/>
                         <outlet property="routeLabel" destination="jJS-eb-Qi0" id="pvZ-98-AgK"/>
                     </connections>
                 </viewController>

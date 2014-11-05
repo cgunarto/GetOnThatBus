@@ -11,10 +11,16 @@
 #import "BusStop.h"
 #import "BusStopAnnotation.h"
 #import "DetailViewController.h"
-#define kURL @"https://s3.amazonaws.com/mobile-makers-lib/bus.json"
 
-@interface RootViewController () <MKMapViewDelegate>
+#define kURL @"https://s3.amazonaws.com/mobile-makers-lib/bus.json"
+#define klatitudeDelta 0.4
+#define klongitudeDelta 0.4
+
+@interface RootViewController () <MKMapViewDelegate, UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet MKMapView *mapView;
+@property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftMapConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *rightMapConstraint;
 
 @property (strong, nonatomic) NSDictionary *busStopResultDictionary;
 @property (strong, nonatomic) NSMutableArray *allBusStopArray;
@@ -24,7 +30,7 @@
 
 @implementation RootViewController
 
-//CHICAGO 41.8337329,-87.7321555
+#pragma mark View Controller Life Cycle
 
 - (void)viewDidLoad
 {
@@ -35,18 +41,26 @@
     // loading all the pin
 }
 
+- (void)viewDidAppear:(BOOL)animated
+{
+    [self requestQuery];
+    [self.tableView reloadData];
+}
+
 
 - (void)setInitialViewToChicago
 {
     //set the center of the map to Chicago
     CLLocationCoordinate2D chicago = CLLocationCoordinate2DMake(41.8337329, -87.7321555);
     MKCoordinateSpan coordinateSpan;
-    coordinateSpan.latitudeDelta = 0.4;
-    coordinateSpan.longitudeDelta = 0.4;
+    coordinateSpan.latitudeDelta = klatitudeDelta;
+    coordinateSpan.longitudeDelta = klongitudeDelta;
 
     MKCoordinateRegion region = MKCoordinateRegionMake(chicago, coordinateSpan);
     [self.mapView setRegion:region animated:YES];
 }
+
+#pragma mark Request Query
 
 - (void)requestQuery
 {
@@ -92,9 +106,12 @@
              }
              
          }
+         [self.tableView reloadData];
      }];
 
 }
+
+#pragma mark Map View Delegate Methods
 
 - (MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id <MKAnnotation>)annotation
 {
@@ -102,6 +119,7 @@
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
     pin.canShowCallout = YES;
     pin.rightCalloutAccessoryView =[UIButton buttonWithType:UIButtonTypeDetailDisclosure];
+    pin.pinColor = MKPinAnnotationColorPurple;
 
     BusStopAnnotation *busStopAnnotation = annotation;
     int index;
@@ -116,7 +134,7 @@
     }
     else if ([busStop.interModal isEqualToString:@"Pace"])
     {
-        pin.image = [UIImage imageNamed:@"yellowmark"];
+        pin.image = [UIImage imageNamed:@"purplemark"];
         return pin;
     }
 
@@ -136,6 +154,8 @@
     [self performSegueWithIdentifier:@"segueToDetail" sender:(BusStop *)chosenBusStop];
 }
 
+#pragma mark Segue
+
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(BusStop *)chosenBusStop
 {
     DetailViewController *detailVC = segue.destinationViewController;
@@ -143,10 +163,46 @@
 }
 
 
+#pragma mark Table View Cell Delegate Method
 
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"cell" forIndexPath:indexPath];
+    BusStop *busStop = self.allBusStopArray[indexPath.row];
+    cell.textLabel.text = busStop.name;
+    cell.detailTextLabel.text = busStop.route;
 
+    return cell;
+}
 
+- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+{
+    return self.allBusStopArray.count;
+}
 
+#pragma mark Segment Controller
 
+- (IBAction)segmentChanged:(UISegmentedControl *)sender
+{
+    switch ([sender selectedSegmentIndex])
+    {
+        case 0:
+        {
+            self.tableView.hidden = YES;
+            self.mapView.hidden = NO;
+            break;
+        }
+
+        case 1:
+        {
+            self.tableView.hidden = NO;
+            self.mapView.hidden = YES;
+            break;
+        }
+
+        default:
+            break;
+    }
+}
 
 @end

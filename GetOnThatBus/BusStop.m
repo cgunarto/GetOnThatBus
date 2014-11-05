@@ -13,15 +13,14 @@
 - (instancetype)initWithBusStopDictionary: (NSDictionary *)busStopDictionary
 {
     self = [super init];
+    
     self.stopID = busStopDictionary[@"_id"];
     self.name = busStopDictionary[@"cta_stop_name"];
     self.route = busStopDictionary[@"routes"];
     self.address = busStopDictionary[@"_address"];
-
     self.interModal = busStopDictionary[@"inter_modal"];
 
     self.longitude = busStopDictionary[@"longitude"];
-
     self.latitude = busStopDictionary[@"latitude"];
 
     return self;
