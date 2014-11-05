@@ -29,6 +29,8 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    [self setTransferLabelColor];
+
     self.title = self.busStop.name;
     self.busStopName.text = self.busStop.name;
 
@@ -80,6 +82,19 @@
     [self.mapView addAnnotation:busStopAnnotation];
     [self.mapView setRegion:region animated:YES];
 
+
+}
+
+- (void)setTransferLabelColor
+{
+    if ([self.busStop isEqual:@"Pace"])
+    {
+        self.interModalLabel.textColor = [UIColor purpleColor];
+    }
+    else if ([self.busStop isEqual:@"Metra"])
+    {
+        self.interModalLabel.textColor = [UIColor greenColor];
+    }
 
 }
 

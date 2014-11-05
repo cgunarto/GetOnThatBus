@@ -81,12 +81,19 @@
      {
          if (connectionError)
          {
-             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CONNECTION ERROR" message:connectionError.localizedDescription preferredStyle:UIAlertControllerStyleAlert];
+             UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"CONNECTION ERROR"
+                                                                            message:connectionError.localizedDescription
+                                                                     preferredStyle:UIAlertControllerStyleAlert];
 
-             UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:nil];
+             UIAlertAction *okButton = [UIAlertAction actionWithTitle:@"OK"
+                                                                style:UIAlertActionStyleDefault
+                                                              handler:nil];
 
              [alert addAction:okButton];
-             [self presentViewController:alert animated:YES completion:nil];
+
+             [self presentViewController:alert
+                                animated:YES
+                              completion:nil];
          }
 
          else
@@ -181,6 +188,21 @@
     BusStop *busStop = self.allBusStopArray[indexPath.row];
     cell.textLabel.text = busStop.name;
     cell.detailTextLabel.text = busStop.route;
+
+    if ([busStop.interModal isEqualToString:@"Pace"])
+    {
+        cell.imageView.image = [UIImage imageNamed:@"purplemark"];
+    }
+
+    else
+        if([busStop.interModal isEqualToString:@"Metra"])
+        {
+            cell.imageView.image = [UIImage imageNamed:@"greenmark"];
+        }
+    else
+        {
+            cell.imageView.image = nil;
+        }
 
     return cell;
 }

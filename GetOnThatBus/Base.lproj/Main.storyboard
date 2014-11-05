@@ -139,7 +139,7 @@
                                     <constraint firstAttribute="height" constant="21" id="u1O-P7-nQ0"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Futura-Medium" family="Futura" pointSize="17"/>
-                                <color key="textColor" red="0.24848857887811948" green="0.54340720663265307" blue="0.15850081667485957" alpha="1" colorSpace="calibratedRGB"/>
+                                <color key="textColor" red="0.24848857890000001" green="0.54340720659999997" blue="0.15850081669999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="38a-5N-Hft">
