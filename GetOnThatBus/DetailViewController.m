@@ -85,13 +85,14 @@
 
 }
 
+//set TransferLabel text color to correspond to pin color (purple for Pace route, green for Metra route)
 - (void)setTransferLabelColor
 {
-    if ([self.busStop isEqual:@"Pace"])
+    if ([self.busStop.interModal isEqual:@"Pace"])
     {
         self.interModalLabel.textColor = [UIColor purpleColor];
     }
-    else if ([self.busStop isEqual:@"Metra"])
+    else if ([self.busStop.interModal isEqual:@"Metra"])
     {
         self.interModalLabel.textColor = [UIColor greenColor];
     }
@@ -106,8 +107,20 @@
     //MKPinAnnotationView instead of MKAnnotation -- be careful
     MKPinAnnotationView *pin = [[MKPinAnnotationView alloc]initWithAnnotation:annotation reuseIdentifier:nil];
     pin.canShowCallout = YES;
-    pin.pinColor = MKPinAnnotationColorPurple;
-    pin.animatesDrop = YES;
+
+    //change the pin image based on transfer or no transfer
+    if([self.busStop.interModal isEqualToString: @"Metra"])
+    {
+        pin.image = [UIImage imageNamed:@"greenmark"];
+        return pin;
+    }
+
+    else if([self.busStop.interModal isEqualToString:@"Pace"])
+    {
+        pin.image = [UIImage imageNamed:@"purplemark"];
+        return pin;
+    }
+
     return pin;
 }
 
