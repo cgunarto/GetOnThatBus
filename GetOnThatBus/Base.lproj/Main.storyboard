@@ -27,7 +27,7 @@
                                 <rect key="frame" x="0.0" y="64" width="320" height="452"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="cell" textLabel="aoJ-xC-t5r" detailTextLabel="oGw-8c-KfY" style="IBUITableViewCellStyleSubtitle" id="2uv-3s-ogc">
+                                    <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="cell" textLabel="aoJ-xC-t5r" detailTextLabel="oGw-8c-KfY" style="IBUITableViewCellStyleSubtitle" id="2uv-3s-ogc">
                                         <rect key="frame" x="0.0" y="0.0" width="160" height="44"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="2uv-3s-ogc" id="obd-7J-gnL">
@@ -47,6 +47,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="JvL-uA-uGl" kind="push" identifier="segueFromCell" id="3vZ-0a-rtc"/>
+                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                                 <connections>
@@ -207,4 +210,7 @@
         <simulatedOrientationMetrics key="orientation"/>
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
+    <inferredMetricsTieBreakers>
+        <segue reference="3vZ-0a-rtc"/>
+    </inferredMetricsTieBreakers>
 </document>

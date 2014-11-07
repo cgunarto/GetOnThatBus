@@ -6,6 +6,9 @@
 //  Copyright (c) 2014 Christina Gunarto. All rights reserved.
 //
 
+
+//TODO: UIVIEW TRANSITION FROM VIEW
+//TODO: IF MORE THAN 2 VIEWS, MAKE IT A SEPARATE VC like the container challenge
 #import "RootViewController.h"
 #import <MapKit/MapKit.h>
 #import "BusStop.h"
@@ -40,14 +43,14 @@
     [self hideTableView];
     self.allBusStopArray = [@[]mutableCopy];
     [self setInitialViewToChicago];
-    [self requestQuery];
+    [self requestQueryForBusLocation];
     // loading all the pin
 }
 
 - (void)viewDidAppear:(BOOL)animated
 {
-    [self requestQuery];
-    [self hideTableView];
+    [self requestQueryForBusLocation];
+//    [self hideTableView];
     [self.tableView reloadData];
 }
 
@@ -72,7 +75,7 @@
 
 #pragma mark Request Query
 
-- (void)requestQuery
+- (void)requestQueryForBusLocation
 {
     NSURL *url = [NSURL URLWithString:kURL];
     NSURLRequest *request= [NSURLRequest requestWithURL:url];
@@ -144,12 +147,12 @@
     index = busStopAnnotation.tag;
     BusStop *busStop = self.allBusStopArray[index];
 
-    if ([busStop.interModal isEqualToString:@"Metra"])
+    if ([busStop.interModal isEqualToString:@"Metra"])//TODO:make it #define
     {
         pin.image = [UIImage imageNamed:@"greenmark"];
         return pin;
     }
-    else if ([busStop.interModal isEqualToString:@"Pace"])
+    else if ([busStop.interModal isEqualToString:@"Pace"])//TODO:make it #define
     {
         pin.image = [UIImage imageNamed:@"purplemark"];
         return pin;
@@ -175,8 +178,20 @@
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(BusStop *)chosenBusStop
 {
-    DetailViewController *detailVC = segue.destinationViewController;
-    detailVC.busStop = chosenBusStop;
+    if ([segue.identifier isEqualToString:@"segueToDetail"])
+    {
+        DetailViewController *detailVC = segue.destinationViewController;
+        detailVC.busStop = chosenBusStop;
+    }
+
+    else if ([segue.identifier isEqualToString:@"segueFromCell"])
+    {
+        DetailViewController *detailVC = segue.destinationViewController;
+        NSInteger rowNumber = [self.tableView indexPathForSelectedRow].row;
+        BusStop *chosenBusStop = self.allBusStopArray[rowNumber];
+        detailVC.busStop = chosenBusStop;
+    }
+
 }
 
 
@@ -212,6 +227,7 @@
     return self.allBusStopArray.count;
 }
 
+
 #pragma mark Segment Controller
 
 - (IBAction)segmentChanged:(UISegmentedControl *)sender
@@ -235,6 +251,12 @@
         default:
             break;
     }
+
+    //[UIView transitionFromView:self.mapView toView:self.tableView duration:0.5 options(UIViewAnimationOptionShowHidTransitionViews | UIViewAnimationOptionTransitionFlipFromRight) completion:
+
 }
+
+#pragma mark
+
 
 @end
